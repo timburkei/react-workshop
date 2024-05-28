@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 // Aufgabe:
 // 1. Verwenden Sie den `useEffect` Hook, um eine Konsolennachricht "Count has changed" anzuzeigen, wenn sich der Wert von `count` ändert.

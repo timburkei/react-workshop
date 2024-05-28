@@ -11,18 +11,20 @@ export default function MyApp() {
 
 function MyButton() {
   const [count, setCount] = useState(0);
+  const [count2, setCount2] = useState(0);
 
   useEffect(() => {
-    document.title = `You clicked ${count} times`;
-  });
-
-  function handleClick() {
-    setCount(count + 1);
-  }
+    console.log(`You clicked ${count} or ${count2} times`);
+  }, [count]);
 
   return (
-    <button onClick={handleClick}>
-      Clicked {count} times
-    </button>
+    <div>
+      <button onClick={() => setCount(count + 1)}>
+        Clicked {count} times
+      </button>
+      <button onClick={() => setCount2(count2 + 1)}>
+        Clicked {count2} times
+      </button>
+    </div>
   );
 }
