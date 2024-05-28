@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+// Link: https://react.dev/learn/lifecycle-of-reactive-effects#each-effect-represents-a-separate-synchronization-process
+
 export default function MyApp() {
   return (
     <div>
@@ -14,8 +16,27 @@ function MyButton() {
   const [count2, setCount2] = useState(0);
 
   useEffect(() => {
-    console.log(`You clicked ${count} or ${count2} times`);
+    console.log(`You clicked count: ${count} times`);
+
+    return () => {
+      console.log('Component with count unmounted');
+    }
   }, [count]);
+
+  useEffect(() => {
+    console.log(`You clicked count2: ${count2} times`);
+    return () => {
+      console.log('Component with count2 unmounted');
+    }
+  }, [count2]);
+
+  useEffect(() => {
+    console.log(`Component MyButton loaded`);
+
+    return () => {
+      console.log('Component MyButton unloaded');
+    }
+  }, []);
 
   return (
     <div>
