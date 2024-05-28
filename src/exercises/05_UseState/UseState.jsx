@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 // Aufgabe:
 // 1. Erstellen Sie einen neuen Zustand (state) `count` mit einem Anfangswert von 0.
