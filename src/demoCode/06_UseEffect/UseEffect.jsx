@@ -2,32 +2,21 @@ import { useState, useEffect } from 'react';
 
 // Link: https://react.dev/learn/lifecycle-of-reactive-effects#each-effect-represents-a-separate-synchronization-process
 
-export default function MyApp() {
-  return (
-    <div>
-      <h1>Show Title</h1>
-      <MyButton />
-    </div>
-  );
-}
 
-function MyButton() {
+
+export default function Counter() {
   const [count, setCount] = useState(0);
   const [count2, setCount2] = useState(0);
 
   useEffect(() => {
     console.log(`You clicked count: ${count} times`);
 
-    return () => {
-      console.log('Component with count unmounted');
-    }
+    
   }, [count]);
 
   useEffect(() => {
     console.log(`You clicked count2: ${count2} times`);
-    return () => {
-      console.log('Component with count2 unmounted');
-    }
+  
   }, [count2]);
 
   useEffect(() => {
@@ -38,9 +27,13 @@ function MyButton() {
     }
   }, []);
 
+  function incrementCount() {
+    setCount(count + 1);
+  }
+
   return (
     <div>
-      <button onClick={() => setCount(count + 1)}>
+      <button onClick={incrementCount}>
         Clicked {count} times
       </button>
       <button onClick={() => setCount2(count2 + 1)}>
